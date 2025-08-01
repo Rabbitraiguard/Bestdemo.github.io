@@ -24,7 +24,7 @@ function loadNavbar() {
                 <div class="flex justify-between h-16">
                     <!-- โลโก้บริษัท -->
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center space-x-2">
+                        <a href="index.html" class="flex items-center space-x-2">
                             <i class="fas fa-box h-8 w-8 text-primary text-2xl"></i>
                             <span class="font-bold text-xl text-primary">LogiThai Express</span>
                         </a>
@@ -32,19 +32,19 @@ function loadNavbar() {
 
                     <!-- เมนูสำหรับคอมพิวเตอร์ -->
                     <div class="hidden md:flex items-center space-x-8">
-                        <a href="/" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
+                        <a href="index.html" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
                             <i class="fas fa-home h-4 w-4"></i>
                             <span>หน้าแรก</span>
                         </a>
-                        <a href="/services.html" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
+                        <a href="services.html" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
                             <i class="fas fa-truck h-4 w-4"></i>
                             <span>บริการ</span>
                         </a>
-                        <a href="/about.html" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
+                        <a href="about.html" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
                             <i class="fas fa-user h-4 w-4"></i>
                             <span>เกี่ยวกับเรา</span>
                         </a>
-                        <a href="/quote.html" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
+                        <a href="quote.html" class="nav-link flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors hover:text-primary">
                             <i class="fas fa-file-text h-4 w-4"></i>
                             <span>ขอใบเสนอราคา</span>
                         </a>
@@ -66,19 +66,19 @@ function loadNavbar() {
                 <!-- เมนูสำหรับมือถือ -->
                 <div id="mobile-menu" class="md:hidden hidden">
                     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t">
-                        <a href="/" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
+                        <a href="index.html" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
                             <i class="fas fa-home h-5 w-5"></i>
                             <span>หน้าแรก</span>
                         </a>
-                        <a href="/services.html" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
+                        <a href="services.html" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
                             <i class="fas fa-truck h-5 w-5"></i>
                             <span>บริการ</span>
                         </a>
-                        <a href="/about.html" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
+                        <a href="about.html" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
                             <i class="fas fa-user h-5 w-5"></i>
                             <span>เกี่ยวกับเรา</span>
                         </a>
-                        <a href="/quote.html" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
+                        <a href="quote.html" class="mobile-nav-link flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors">
                             <i class="fas fa-file-text h-5 w-5"></i>
                             <span>ขอใบเสนอราคา</span>
                         </a>
@@ -107,9 +107,9 @@ function setActiveNavItem() {
         link.classList.remove('active');
         const href = link.getAttribute('href');
         
-        if ((currentPage === '/' || currentPage === '/index.html') && href === '/') {
+        if ((currentPage === '/' || currentPage === '/index.html' || currentPage.endsWith('index.html')) && (href === '/' || href === 'index.html')) {
             link.classList.add('active');
-        } else if (currentPage.includes(href) && href !== '/') {
+        } else if (currentPage.includes(href) && href !== '/' && href !== 'index.html') {
             link.classList.add('active');
         }
     });
@@ -138,125 +138,83 @@ function setupMobileMenu() {
 
 // Load page-specific content
 function loadPageContent() {
-    if (currentPage === '/' || currentPage === '/index.html') {
-        loadHomepageServices();
-    }
+    loadFooter();
 }
 
-// Load services for homepage
-function loadHomepageServices() {
-    const servicesData = [
-        {
-            icon: "fas fa-ship",
-            title: "บริการส่งออก",
-            description: "บริการส่งออกสินค้าทางเรือและทางอากาศ พร้อมจัดการเอกสารครบถ้วน",
-            features: [
-                "จัดการเอกสารส่งออก", 
-                "ประสานงานกับท่าเรือ", 
-                "ติดตามสถานะการขนส่ง", 
-                "ประกันภัยสินค้า"
-            ],
-            bgColor: "bg-blue-50 border-blue-200"
-        },
-        {
-            icon: "fas fa-plane",
-            title: "บริการนำเข้า",
-            description: "บริการนำเข้าสินค้าจากต่างประเทศ จัดการพิธีการศุลกากรครบวงจร",
-            features: [
-                "ผ่านพิธีการศุลกากร", 
-                "จัดเก็บสินค้าในคลังสินค้า", 
-                "ขนส่งถึงปลายทาง", 
-                "ตรวจสอบคุณภาพสินค้า"
-            ],
-            bgColor: "bg-green-50 border-green-200"
-        },
-        {
-            icon: "fas fa-file-check",
-            title: "พิธีการทางศุลกากร",
-            description: "ผู้เชี่ยวชาญด้านพิธีการศุลกากร จัดการเอกสารและภาษีอากรทุกประเภท",
-            features: [
-                "ยื่นใบขนสินค้า", 
-                "คำนวณภาษีอากร", 
-                "ตรวจปล่อยสินค้า", 
-                "ยื่นขอใบอนุญาตพิเศษ"
-            ],
-            bgColor: "bg-orange-50 border-orange-200"
-        },
-        {
-            icon: "fas fa-truck",
-            title: "ขนส่งภายในประเทศ",
-            description: "บริการขนส่งสินค้าภายในประเทศ ครอบคลุมทุกพื้นที่ในประเทศไทย",
-            features: [
-                "รถบรรทุกทุกขนาด", 
-                "ติดตาม GPS แบบเรียลไทม์", 
-                "บรรจุหีบห่อปลอดภัย", 
-                "ประกันภัยครอบคลุม"
-            ],
-            bgColor: "bg-purple-50 border-purple-200"
-        },
-        {
-            icon: "fas fa-clock",
-            title: "บริการด่วนพิเศษ",
-            description: "บริการขนส่งด่วนสำหรับสินค้าเร่งด่วน ดำเนินการตลอด 24 ชั่วโมง",
-            features: [
-                "ดำเนินการ 24/7", 
-                "Fast Track Clearance", 
-                "ติดต่อตลอดเวลา", 
-                "รับประกันเวลา"
-            ],
-            bgColor: "bg-red-50 border-red-200"
-        },
-        {
-            icon: "fas fa-users",
-            title: "ที่ปรึกษาโลจิสติกส์",
-            description: "ให้คำปรึกษาด้านโลจิสติกส์ วางแผนการขนส่ง และเพิ่มประสิทธิภาพ",
-            features: [
-                "วิเคราะห์ต้นทุน", 
-                "วางแผนเส้นทาง", 
-                "เพิ่มประสิทธิภาพ", 
-                "รายงานผลการดำเนินงาน"
-            ],
-            bgColor: "bg-indigo-50 border-indigo-200"
-        }
-    ];
-
-    const servicesGrid = document.getElementById('services-grid');
-    if (servicesGrid) {
-        servicesGrid.innerHTML = servicesData.map(service => `
-            <div class="service-card ${service.bgColor} hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div class="card-header">
-                    <!-- ไอคอนบริการ -->
-                    <div class="p-3 bg-primary/10 rounded-lg w-fit">
-                        <i class="${service.icon} h-8 w-8 text-primary text-2xl"></i>
+// Load footer into all pages
+function loadFooter() {
+    const footerHTML = `
+        <footer class="bg-primary text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Company Info -->
+                    <div class="col-span-1 md:col-span-2">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <i class="fas fa-box h-8 w-8 text-secondary text-2xl"></i>
+                            <span class="font-bold text-xl">LogiThai Express</span>
+                        </div>
+                        <p class="text-white/80 mb-4">
+                            ผู้เชี่ยวชาญด้านโลจิสติกส์ในประเทศไทย ให้บริการส่งออก นำเข้า และพิธีการศุลกากร
+                            ด้วยประสบการณ์กว่า 15 ปี
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-white/80 hover:text-secondary transition-colors">
+                                <i class="fab fa-facebook-f h-5 w-5"></i>
+                            </a>
+                            <a href="#" class="text-white/80 hover:text-secondary transition-colors">
+                                <i class="fab fa-twitter h-5 w-5"></i>
+                            </a>
+                            <a href="#" class="text-white/80 hover:text-secondary transition-colors">
+                                <i class="fab fa-linkedin-in h-5 w-5"></i>
+                            </a>
+                        </div>
                     </div>
                     
-                    <!-- ชื่อและคำบรรยายบริการ -->
-                    <h3 class="card-title text-xl">${service.title}</h3>
-                    <p class="card-description text-base">
-                        ${service.description}
-                    </p>
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="font-semibold mb-4">เมนูหลัก</h3>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-white/80 hover:text-secondary transition-colors">หน้าแรก</a></li>
+                            <li><a href="services.html" class="text-white/80 hover:text-secondary transition-colors">บริการ</a></li>
+                            <li><a href="about.html" class="text-white/80 hover:text-secondary transition-colors">เกี่ยวกับเรา</a></li>
+                            <li><a href="quote.html" class="text-white/80 hover:text-secondary transition-colors">ขอใบเสนอราคา</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="font-semibold mb-4">ติดต่อเรา</h3>
+                        <ul class="space-y-2 text-white/80">
+                            <li class="flex items-center">
+                                <i class="fas fa-phone h-4 w-4 mr-2"></i>
+                                02-123-4567
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope h-4 w-4 mr-2"></i>
+                                info@logithai.com
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt h-4 w-4 mr-2 mt-1"></i>
+                                <span>123 ถนนสุขุมวิท แขวงคลองเตย<br>เขตคลองเตย กรุงเทพ 10110</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="card-content">
-                    <!-- รายการฟีเจอร์ของบริการ -->
-                    <ul class="space-y-2 mb-6">
-                        ${service.features.map(feature => `
-                            <li class="flex items-center text-sm">
-                                <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                                ${feature}
-                            </li>
-                        `).join('')}
-                    </ul>
-                    
-                    <!-- ปุ่มขอใบเสนอราคา -->
-                    <a href="/quote.html">
-                        <button class="btn btn-outline w-full">
-                            ขอใบเสนอราคา
-                        </button>
-                    </a>
+                <!-- Copyright -->
+                <div class="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
+                    <p>&copy; 2024 LogiThai Express. สงวนลิขสิทธิ์.</p>
                 </div>
             </div>
-        `).join('');
+        </footer>
+        
+        <!-- Toast Container -->
+        <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+    `;
+
+    const footerContainer = document.getElementById('footer-container');
+    if (footerContainer) {
+        footerContainer.innerHTML = footerHTML;
     }
 }
 
@@ -317,25 +275,8 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Handle navigation clicks
-document.addEventListener('click', function(e) {
-    if (e.target.closest('a[href]')) {
-        const link = e.target.closest('a[href]');
-        const href = link.getAttribute('href');
-        
-        // Handle internal links
-        if (href.startsWith('/') && !href.startsWith('//')) {
-            e.preventDefault();
-            
-            // Update URL
-            if (href === '/') {
-                window.location.href = '/index.html';
-            } else {
-                window.location.href = href;
-            }
-        }
-    }
-});
+// Handle navigation clicks - removed custom routing for static HTML files
+// Navigation now works with standard HTML links
 
 // Export functions for global use
 window.showToast = showToast;
