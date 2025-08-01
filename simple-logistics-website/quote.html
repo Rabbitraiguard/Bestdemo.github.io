@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ขอใบเสนอราคา - โลจิสติกส์ไทย</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>โลจิสติกส์ไทย</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">หน้าแรก</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">บริการ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">เกี่ยวกับเรา</a>
+                </li>
+                <li class="nav-item">
+                    <a href="quote.html" class="nav-link active">ขอใบเสนอราคา</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>ขอใบเสนอราคา</h1>
+                <p>กรอกข้อมูลด้านล่างเพื่อรับใบเสนอราคาที่เหมาะสมกับความต้องการของคุณ</p>
+            </div>
+
+            <!-- Quote Form -->
+            <div class="quote-form">
+                <form id="quoteForm">
+                    <h3><i class="fas fa-building"></i> ข้อมูลบริษัท</h3>
+                    
+                    <div class="form-group">
+                        <label for="companyName">ชื่อบริษัท *</label>
+                        <input type="text" id="companyName" name="companyName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taxId">เลขประจำตัวผู้เสียภาษี</label>
+                        <input type="text" id="taxId" name="taxId" placeholder="0000000000000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="companyAddress">ที่อยู่บริษัท</label>
+                        <textarea id="companyAddress" name="companyAddress" placeholder="ที่อยู่สำนักงาน / โรงงาน"></textarea>
+                    </div>
+
+                    <h3><i class="fas fa-user"></i> ข้อมูลผู้ติดต่อ</h3>
+                    
+                    <div class="form-group">
+                        <label for="contactName">ชื่อผู้ติดต่อ *</label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="position">ตำแหน่ง</label>
+                        <input type="text" id="position" name="position" placeholder="ตำแหน่งงาน">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">อีเมล *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">เบอร์โทรศัพท์ *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="081-234-5678" required>
+                    </div>
+
+                    <h3><i class="fas fa-truck"></i> รายละเอียดบริการ</h3>
+                    
+                    <div class="form-group">
+                        <label for="serviceType">ประเภทบริการ *</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="">เลือกประเภทบริการ</option>
+                            <option value="export">บริการส่งออก</option>
+                            <option value="import">บริการนำเข้า</option>
+                            <option value="customs">พิธีการศุลกากร</option>
+                            <option value="domestic">ขนส่งภายในประเทศ</option>
+                            <option value="consulting">ที่ปรึกษาโลจิสติกส์</option>
+                            <option value="other">อื่นๆ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="origin">ต้นทาง</label>
+                        <input type="text" id="origin" name="origin" placeholder="ประเทศ/จังหวัดต้นทาง">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="destination">ปลายทาง</label>
+                        <input type="text" id="destination" name="destination" placeholder="ประเทศ/จังหวัดปลายทาง">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cargoType">ประเภทสินค้า</label>
+                        <input type="text" id="cargoType" name="cargoType" placeholder="เช่น อิเล็กทรอนิกส์, อาหาร, สิ่งทอ">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cargoWeight">น้ำหนักสินค้า (กิโลกรัม)</label>
+                        <input type="number" id="cargoWeight" name="cargoWeight" placeholder="เช่น 1000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cargoDimensions">ขนาดสินค้า (กว้าง x ยาว x สูง ซม.)</label>
+                        <input type="text" id="cargoDimensions" name="cargoDimensions" placeholder="เช่น 100 x 200 x 150">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="urgency">ความเร่งด่วน</label>
+                        <select id="urgency" name="urgency">
+                            <option value="standard">ปกติ (7-14 วัน)</option>
+                            <option value="urgent">เร่งด่วน (3-5 วัน)</option>
+                            <option value="express">ด่วนพิเศษ (1-2 วัน)</option>
+                        </select>
+                    </div>
+
+                    <h3><i class="fas fa-calendar-alt"></i> รายละเอียดเพิ่มเติม</h3>
+                    
+                    <div class="form-group">
+                        <label for="preferredDate">วันที่ต้องการใช้บริการ</label>
+                        <input type="date" id="preferredDate" name="preferredDate">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="frequency">ความถี่ในการใช้บริการ</label>
+                        <select id="frequency" name="frequency">
+                            <option value="one-time">ครั้งเดียว</option>
+                            <option value="monthly">รายเดือน</option>
+                            <option value="quarterly">รายไตรมาส</option>
+                            <option value="regular">สม่ำเสมอ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalServices">บริการเพิ่มเติม</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="insurance" name="additionalServices" value="insurance">
+                            <label for="insurance">ประกันภัยสินค้า</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="packaging" name="additionalServices" value="packaging">
+                            <label for="packaging">บริการห่อหุ้มสินค้า</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="storage" name="additionalServices" value="storage">
+                            <label for="storage">บริการคลังสินค้า</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="tracking" name="additionalServices" value="tracking">
+                            <label for="tracking">ระบบติดตามสินค้า</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialRequirements">ความต้องการพิเศษ</label>
+                        <textarea id="specialRequirements" name="specialRequirements" placeholder="กรุณาระบุความต้องการพิเศษ เช่น สินค้าเปื่อยเสีย, สินค้าอันตราย, การจัดการพิเศษ"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">งบประมาณโดยประมาณ (บาท)</label>
+                        <select id="budget" name="budget">
+                            <option value="">ไม่ระบุ</option>
+                            <option value="under-10000">ต่ำกว่า 10,000</option>
+                            <option value="10000-50000">10,000 - 50,000</option>
+                            <option value="50000-100000">50,000 - 100,000</option>
+                            <option value="100000-500000">100,000 - 500,000</option>
+                            <option value="over-500000">มากกว่า 500,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalNotes">หมายเหตุเพิ่มเติม</label>
+                        <textarea id="additionalNotes" name="additionalNotes" placeholder="ข้อมูลเพิ่มเติมที่ต้องการให้เราทราบ"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">ฉันยินยอมให้บริษัทติดต่อเพื่อให้ข้อมูลและใบเสนอราคา *</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        ส่งคำขอใบเสนอราคา
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>โทรศัพท์</h4>
+                    <p>02-123-4567</p>
+                    <p>081-234-5678</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>อีเมล</h4>
+                    <p>info@logithai.com</p>
+                    <p>sales@logithai.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>ที่อยู่</h4>
+                    <p>123 ถนนสาทร แขวงสีลม</p>
+                    <p>เขตบางรัก กรุงเทพฯ 10500</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>เวลาทำการ</h4>
+                    <p>จันทร์-ศุกร์: 8:00-18:00</p>
+                    <p>เสาร์: 8:00-12:00</p>
+                    <p>บริการฉุกเฉิน 24/7</p>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="service-detail">
+                <h3>ขั้นตอนการให้บริการ</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h4>1. รับคำขอ</h4>
+                        <p>ตรวจสอบข้อมูลและความต้องการ</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4>2. คำนวณราคา</h4>
+                        <p>วิเคราะห์และจัดทำใบเสนอราคา</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>3. เจรจาตกลง</h4>
+                        <p>ปรับปรุงข้อเสนอตามความต้องการ</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-truck-moving"></i>
+                        </div>
+                        <h4>4. เริ่มบริการ</h4>
+                        <p>ดำเนินการตามแผนที่ตกลงกัน</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <p><strong>เราจะติดต่อกลับภายใน 24 ชั่วโมง</strong></p>
+                    <p>ทีมผู้เชี่ยวชาญของเราพร้อมให้คำปรึกษาและใบเสนอราคาที่เหมาะสมที่สุดสำหรับคุณ</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>โลจิสติกส์ไทย</h3>
+                    <p>ผู้เชี่ยวชาญด้านการส่งออก-นำเข้า และพิธีการศุลกากร</p>
+                </div>
+                <div class="footer-section">
+                    <h4>ติดต่อเรา</h4>
+                    <p><i class="fas fa-phone"></i> 02-123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@logithai.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 ถนนสาทร แขวงสีลม เขตบางรัก กรุงเทพฯ 10500</p>
+                </div>
+                <div class="footer-section">
+                    <h4>เวลาทำการ</h4>
+                    <p>จันทร์-ศุกร์: 8:00-18:00</p>
+                    <p>เสาร์: 8:00-12:00</p>
+                    <p>บริการฉุกเฉิน 24/7</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 โลจิสติกส์ไทย. สงวนลิขสิทธิ์.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
